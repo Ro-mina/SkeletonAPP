@@ -1,27 +1,70 @@
-#container {
+.contenedor-info {  
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255); 
+}
+
+.titulo-info {
   text-align: center;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.bienvenido {
+  text-align: center;
+  font-size: 30px;
+}
 
-  position: absolute;
+
+.fila {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.etiqueta {
+  width: 40%;
+  font-weight: bold;
+  text-align: start;
+  color: #666;
+}
+
+ion-input, ion-select {
+  flex: 1;
+}
+
+@keyframes deslizar {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+.animacion {
+  animation: deslizar 1s ease;
+}
+
+.titulo-animado {
+  animation: aparecer 1s ease-in-out;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+ion-footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 10;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}

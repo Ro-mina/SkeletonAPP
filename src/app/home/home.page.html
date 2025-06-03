@@ -1,20 +1,83 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title class="titulo-animado">SkeletonAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="contenedor">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <!-- Columna izquierda -->
+    <div class="columna-izquierda">
+    <h2 class="bienvenido">¡Bienvenido!</h2>
+      <p><strong>Usuario:</strong> {{ usuario }}</p>
+    </div>
+
+    <div class="contenedor-info">
+      <h3 class="titulo-info">Información Adicional</h3>
+      <div class="contenido-info">
+
+        <!-- Nombre -->
+        <div class="fila">
+          <label class="etiqueta" for="nombre">Nombre:</label>
+          <ion-input
+            id="nombre"
+            [(ngModel)]="nombre"
+            placeholder="Ingrese Nombre"
+            [class.animacion]="animarInputs">
+          </ion-input>
+        </div>
+
+        <!-- Apellido -->
+        <div class="fila">
+          <label class="etiqueta" for="apellido">Apellido:</label>
+          <ion-input
+            id="apellido"
+            [(ngModel)]="apellido"
+            placeholder="Ingrese Apellido"
+            [class.animacion]="animarInputs">
+          </ion-input>
+        </div>
+
+        <!-- Nivel Educación -->
+        <div class="fila">
+          <label class="etiqueta" for="nivelEducacion">Nivel Educación:</label>
+          <ion-select
+            id="nivelEducacion"
+            [(ngModel)]="nivelEducacion"
+            placeholder="Seleccione Nivel">
+            <ion-select-option value="basica">Básica</ion-select-option>
+            <ion-select-option value="media">Media</ion-select-option>
+            <ion-select-option value="universitaria">Universitaria</ion-select-option>
+          </ion-select>
+        </div>
+
+        <!-- Fecha de nacimiento -->
+        <div class="fila">
+          <label class="etiqueta">Fecha Nacimiento:</label>
+          <mat-form-field appearance="fill" style="flex: 1">
+            <mat-label>DD/MM/YYYY</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="fechaNacimiento">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <!-- Botones -->
+        <div class="botones">
+          <ion-button expand="block" color="medium" (click)="limpiarCampos()">Limpiar</ion-button>
+          <ion-button expand="block" color="primary" (click)="mostrarDatos()">Mostrar</ion-button>
+        </div>   
+  </div>  
+
+  <ion-footer>
+    <ion-toolbar color="light">
+      <ion-title size="small" class="ion-text-center">
+        App desarrollada por RT © 2025 
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
+

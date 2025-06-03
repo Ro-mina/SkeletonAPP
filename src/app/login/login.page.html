@@ -1,13 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <h1 class="app-title">SkeletonAPP</h1>
+    <p class="subtitle">Aquí comienza todo</p>
+    <h2 class="welcome">¡Bienvenido!</h2>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <ion-item>
+        <ion-label for="username" position="floating">Usuario</ion-label>
+        <ion-input
+          id="username"
+          type="text"
+          name="username"
+          ngModel
+          required
+          minlength="3"
+          maxlength="8"
+          pattern="[a-zA-Z0-9]+"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label for="password" position="floating">Contraseña</ion-label>
+        <ion-input
+          id="password"
+          type="password"
+          name="password"
+          ngModel
+          required
+          minlength="4"
+          maxlength="4"
+          pattern="^[0-9]{4}$"
+        ></ion-input>
+      </ion-item>
+
+
+      <ion-button expand="block" type="submit" [disabled]="!loginForm.form.valid">
+        Ingresar
+      </ion-button>
+    </form>
+     <div class="register-link">
+      <a href="/registro">Crea tu cuenta gratis</a>
+    </div>
+  </div>
 </ion-content>

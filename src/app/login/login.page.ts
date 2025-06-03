@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
+  standalone: true,
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  styleUrl: './login.page.scss',
+  imports: [IonicModule, FormsModule, RouterModule],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  login(form: any) {
+    if (form.valid) {
+      const username = form.value.username;
+      const password = form.value.password;
 
-  ngOnInit() {
+      this.router.navigate(['/home'], {
+        queryParams: {
+          usuario: username,
+          clave: password,
+        },
+      });
+    }
   }
-
 }
